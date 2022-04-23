@@ -28,7 +28,7 @@ public class Launch : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("Mousedown");
+            
             lineRenderer.enabled = true;
             Mousepress = true;
         }
@@ -47,7 +47,7 @@ public class Launch : MonoBehaviour
             Vector3 mousePos = Cam.ScreenToWorldPoint(Input.mousePosition);
 
 
-            Debug.Log(mousePos);
+            
             mousePos.z = 0;
             //transform.LookAt(mousePos);
             LaunchVelocity = (mousePos - Player.position);
@@ -83,9 +83,9 @@ public class Launch : MonoBehaviour
     }
     void Fire()
     {
-        Debug.Log("Fire");
+        
         Rigidbody rb = Player.GetComponent<Rigidbody>();
-        rb.AddForce(LaunchVelocity, ForceMode.Impulse);
+        rb.AddForce(LaunchVelocity*2, ForceMode.Impulse);
 
     }
 
