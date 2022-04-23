@@ -12,8 +12,12 @@ public class Launch : MonoBehaviour
     private const int NoTrajectoryPoints = 10;
     private Camera Cam;
     private bool Mousepress = false;
- 
+
+    [SerializeField]
     private Vector3 LaunchVelocity;
+
+    [SerializeField]
+    private float velocityMultiplier = 1.0f;
 
     [SerializeField]
     private bool isGrounded = false;
@@ -50,6 +54,7 @@ public class Launch : MonoBehaviour
             
             mousePos.z = 0;
             //transform.LookAt(mousePos);
+            //LaunchVelocity = Vector3.Normalize(mousePos - Player.position);
             LaunchVelocity = (mousePos - Player.position);
 
             LineRenderUpdate();    
@@ -85,7 +90,7 @@ public class Launch : MonoBehaviour
     {
         
         Rigidbody rb = Player.GetComponent<Rigidbody>();
-        rb.AddForce(LaunchVelocity*2, ForceMode.Impulse);
+        rb.AddForce(LaunchVelocity * velocityMultiplier, ForceMode.Impulse);
 
     }
 
