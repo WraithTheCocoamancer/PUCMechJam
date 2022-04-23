@@ -8,8 +8,13 @@ public class Menu : MonoBehaviour
     public void PlayGame()
     {
         Debug.Log(Time.timeScale);
-        Time.timeScale = 1;
+        
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+    public void Returntomenu()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
     public void Quitgame()
     {
