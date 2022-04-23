@@ -27,6 +27,12 @@ public class pause : MonoBehaviour
             }
         }
     }
+    public void Returntogame()
+    {
+        pausemenuUI.SetActive(false);
+        Time.timeScale = 1f;
+        gameispause = false;
+    }
 
     void Resume()
     {
